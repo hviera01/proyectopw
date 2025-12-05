@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contáctenos | Organización en Espera</title>
+    <meta name="description" content="Formulario de contacto para enviar mensajes, dudas o propuestas a la futura organización sin fines de lucro en espera de elegirse.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contacto">
+<header class="site-header">
+    <div class="topbar">
+        <span class="topbar-text">Organización sin fines de lucro en espera de elegirse</span>
+        <span class="topbar-contact">Correo: contacto@orgenespera.org | Tel: +504 0000-0000</span>
+    </div>
+    <div class="branding">
+        <a href="index.html" class="logo-link">
+            <div class="logo-mark">
+                <span class="logo-icon">∞</span>
+            </div>
+            <div class="logo-text">
+                <span class="logo-title">Organización en Espera</span>
+                <span class="logo-subtitle">Compromiso social en construcción</span>
+            </div>
+        </a>
+        <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú de navegación">
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+        </button>
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html" data-link="inicio">Inicio</a></li>
+            <li><a href="acerca.html" data-link="acerca">Acerca de</a></li>
+            <li><a href="programas.html" data-link="programas">Programas</a></li>
+            <li><a href="como-ayudar.html" data-link="como-ayudar">Cómo ayudar</a></li>
+            <li><a href="galeria.html" data-link="galeria">Galería</a></li>
+            <li><a href="blog.html" data-link="blog">Blog</a></li>
+            <li><a href="eventos.html" data-link="eventos">Eventos</a></li>
+            <li><a href="donaciones.html" data-link="donaciones">Donaciones</a></li>
+            <li><a href="faq.html" data-link="faq">FAQ</a></li>
+            <li><a href="contacto.html" data-link="contacto" class="nav-cta">Contáctenos</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="page-main">
+    <section class="page-header-block">
+        <div class="container">
+            <h1>Contáctenos</h1>
+            <p>
+                Utilice el formulario para compartir comentarios, dudas o propuestas de colaboración para la futura organización.
+            </p>
+        </div>
+    </section>
+
+    <section class="section container layout-split">
+        <div>
+            <h2>Datos generales de contacto</h2>
+            <p>
+                Correo electrónico de referencia: contacto@orgenespera.org
+            </p>
+            <p>
+                Una vez que se defina la sede principal, aquí se mostrarán dirección exacta, horarios de atención y otros medios de comunicación.
+            </p>
+        </div>
+        <div>
+            <form id="contactForm" class="form-card" novalidate>
+                <h2>Formulario de contacto</h2>
+                <label for="contactName">Nombre completo</label>
+                <input id="contactName" name="contactName" type="text" required>
+                <span class="error-message" id="contactNameError">Ingrese su nombre completo.</span>
+
+                <label for="contactEmail">Correo electrónico</label>
+                <input id="contactEmail" name="contactEmail" type="email" required>
+                <span class="error-message" id="contactEmailError">Ingrese un correo electrónico válido.</span>
+
+                <label for="contactPhone">Teléfono (opcional)</label>
+                <input id="contactPhone" name="contactPhone" type="tel">
+
+                <label for="contactMessage">Mensaje</label>
+                <textarea id="contactMessage" name="contactMessage" rows="5" required></textarea>
+                <span class="error-message" id="contactMessageError">Escriba un mensaje con al menos algunas palabras.</span>
+
+                <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                <p class="form-success" id="contactSuccess">Su mensaje se ha validado correctamente. En un sitio real se enviaría a la organización.</p>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-main container">
+        <div class="footer-col">
+            <h3>Organización en Espera</h3>
+            <p>
+                Propuesta de sitio web para una futura organización sin fines de lucro dedicada al trabajo comunitario, social y educativo.
+            </p>
+        </div>
+        <div class="footer-col">
+            <h3>Secciones</h3>
+            <ul class="footer-links">
+                <li><a href="faq.html">Preguntas frecuentes</a></li>
+                <li><a href="donaciones.html">Donaciones</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Contacto</h3>
+            <p>Correo: contacto@orgenespera.org</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span id="footerYear"></span> © Organización en Espera. Sitio demostrativo para fines académicos.
+    </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
