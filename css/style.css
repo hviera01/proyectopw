@@ -58,19 +58,25 @@ img {
 }
 
 .logo-mark {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #15a29c, #4cb8ba);
+    width: 48px;
+    height: 48px;
+    border-radius: 12px; /* Podés subirlo a 50% si querés completamente circular */
+    overflow: hidden; /* Esto recorta cualquier exceso de la imagen */
+    background: #ffffff10; /* Un toque suave de fondo opcional */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.logo-icon {
-    font-size: 1.3rem;
-    color: #0b3948;
+
+.logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene la imagen bien centrada */
+    border-radius: 12px; /* Igual que el contenedor */
 }
+
+
 
 .logo-text {
     display: flex;

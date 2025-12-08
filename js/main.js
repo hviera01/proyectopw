@@ -42,7 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
         var contactMessage = document.getElementById("contactMessage");
         var contactMessageError = document.getElementById("contactMessageError");
         var contactSuccess = document.getElementById("contactSuccess");
-        var emailRegex = /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/;
+
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         var isEmptyRegex = /^\s*$/;
         var messageRegex = /^\s*\S+(?:\s+\S+){2,}\s*$/;
 
@@ -50,28 +51,32 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
             var isValid = true;
 
-            if (contactNameError) contactNameError.style.display = "none";
-            if (contactEmailError) contactEmailError.style.display = "none";
-            if (contactMessageError) contactMessageError.style.display = "none";
-            if (contactSuccess) contactSuccess.style.display = "none";
+            contactNameError.style.display = "none";
+            contactEmailError.style.display = "none";
+            contactMessageError.style.display = "none";
+            contactSuccess.style.display = "none";
 
-            if (!contactName || isEmptyRegex.test(contactName.value)) {
-                if (contactNameError) contactNameError.style.display = "block";
+            if (isEmptyRegex.test(contactName.value)) {
+                contactNameError.style.display = "block";
                 isValid = false;
             }
 
-            if (!contactEmail || !emailRegex.test(contactEmail.value)) {
-                if (contactEmailError) contactEmailError.style.display = "block";
+            if (!emailRegex.test(contactEmail.value)) {
+                contactEmailError.style.display = "block";
                 isValid = false;
             }
 
-            if (!contactMessage || !messageRegex.test(contactMessage.value)) {
-                if (contactMessageError) contactMessageError.style.display = "block";
+            if (!messageRegex.test(contactMessage.value)) {
+                contactMessageError.style.display = "block";
                 isValid = false;
             }
 
-            if (isValid && contactSuccess) {
+            if (isValid) {
                 contactSuccess.style.display = "block";
+                contactForm.reset();
+                setTimeout(function () {
+                    contactSuccess.style.display = "none";
+                }, 3000);
             }
         });
     }
@@ -87,42 +92,47 @@ document.addEventListener("DOMContentLoaded", function () {
         var donationType = document.getElementById("donationType");
         var donationTypeError = document.getElementById("donationTypeError");
         var donationSuccess = document.getElementById("donationSuccess");
-        var emailRegex2 = /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/;
+
+        var emailRegex2 = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         var isEmptyRegex2 = /^\s*$/;
 
         donationForm.addEventListener("submit", function (e) {
             e.preventDefault();
             var isValid = true;
 
-            if (donorNameError) donorNameError.style.display = "none";
-            if (donorEmailError) donorEmailError.style.display = "none";
-            if (donationAmountError) donationAmountError.style.display = "none";
-            if (donationTypeError) donationTypeError.style.display = "none";
-            if (donationSuccess) donationSuccess.style.display = "none";
+            donorNameError.style.display = "none";
+            donorEmailError.style.display = "none";
+            donationAmountError.style.display = "none";
+            donationTypeError.style.display = "none";
+            donationSuccess.style.display = "none";
 
-            if (!donorName || isEmptyRegex2.test(donorName.value)) {
-                if (donorNameError) donorNameError.style.display = "block";
+            if (isEmptyRegex2.test(donorName.value)) {
+                donorNameError.style.display = "block";
                 isValid = false;
             }
 
-            if (!donorEmail || !emailRegex2.test(donorEmail.value)) {
-                if (donorEmailError) donorEmailError.style.display = "block";
+            if (!emailRegex2.test(donorEmail.value)) {
+                donorEmailError.style.display = "block";
                 isValid = false;
             }
 
-            var amount = donationAmount ? parseFloat(donationAmount.value) : 0;
-            if (!donationAmount || isNaN(amount) || amount <= 0) {
-                if (donationAmountError) donationAmountError.style.display = "block";
+            var amount = parseFloat(donationAmount.value);
+            if (isNaN(amount) || amount <= 0) {
+                donationAmountError.style.display = "block";
                 isValid = false;
             }
 
-            if (!donationType || isEmptyRegex2.test(donationType.value)) {
-                if (donationTypeError) donationTypeError.style.display = "block";
+            if (isEmptyRegex2.test(donationType.value)) {
+                donationTypeError.style.display = "block";
                 isValid = false;
             }
 
-            if (isValid && donationSuccess) {
+            if (isValid) {
                 donationSuccess.style.display = "block";
+                donationForm.reset();
+                setTimeout(function () {
+                    donationSuccess.style.display = "none";
+                }, 3000);
             }
         });
     }
